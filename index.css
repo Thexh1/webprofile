@@ -1,0 +1,282 @@
+
+/* 
+   ROOT VARIABLES
+   colors that you can reuse. how?
+
+   color: #19191a 
+   is similar to
+   color: var(--dark)
+ */
+
+:root {
+  --dark: #19191a;
+  --accent: #ffffff;
+  --light: #f5f7fa;
+  --white: #ffffff;
+  --text: #333333;
+}
+
+
+ /* 
+   GLOBAL STYLES.
+   "*" {} = means this style is applied to all elements
+   (element name) {} = means this style is applied to the specific element
+   .(class name) {} = means this style is named. it can be used by elements via <div class="(class name)" > </div>
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: var(--text); 
+  background-color: var(--light);
+}
+
+h1, h2, h3 {
+  color: var(--dark);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+h3 {
+  margin: 15px 0 8px;
+}
+
+p {
+  margin-bottom: 12px;
+}
+
+ul {
+  margin-left: 20px;
+}
+
+a {
+  color: #1a5fb4;
+}
+
+
+/* 
+   NAVBAR
+   style of the navbar
+   position: fixed means it's position won't change. (x and y)
+   display: flex means it's aligned horizontally
+ */
+
+.navbar {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: var(--dark);
+  z-index: 10;
+}
+
+.logo {
+  color: var(--white);
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.navbar nav a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 5px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.navbar nav a:hover {
+  border-bottom-color: var(--accent);
+}
+
+
+/* 
+   MAIN SECTIONS
+ */
+
+section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+
+/* 
+   HOME
+ */
+
+.home {
+  max-width: none;
+  text-align: center;
+  padding: 130px 20px 80px;
+  background-color: var(--dark);
+  color: var(--white);
+}
+
+.home h1 {
+  color: var(--white);
+  font-size: 2.6rem;
+  margin: 20px 0 10px;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid var(--accent);
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: var(--accent);
+  color: var(--dark);
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.button:hover {
+  background-color: var(--white);
+}
+
+
+/* 
+   ABOUT
+ */
+
+
+/* 
+   EDUCATION
+ */
+
+.card-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1 1 280px;
+  background-color: var(--white);
+  padding: 20px;
+  border: 1px solid #d5dbe3;
+  border-radius: 6px;
+}
+
+
+/* 
+   PORTFOLIO
+ */
+
+
+/* 
+   GALLERY
+ */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border: 3px solid var(--white);
+  border-radius: 6px;
+}
+
+
+/* 
+   CONTACT
+ */
+
+
+/* 
+   FOOTER
+ */
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--dark);
+  color: var(--white);
+}
+
+footer p {
+  margin: 0;
+}
+
+
+/* 
+   RESPONSIVE DESIGN
+ */
+
+/* Tablets */
+@media (max-width: 800px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+    position: static;
+  }
+
+  .navbar ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .home {
+    padding-top: 50px;
+  }
+
+  .home h1 {
+    font-size: 2rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
